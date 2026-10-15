@@ -1,21 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour
+// TURUNAN dari Character: karakter yang digerakkan oleh keyboard
+public class PlayerMovement : Character
 {
-    public float speed = 4f;
-
-    Rigidbody2D rb;
-    Animator anim;
     Vector2 input;
     Vector2 lastDir = Vector2.down;
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-    }
 
     void Update()
     {
@@ -37,8 +27,15 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("MoveY", lastDir.y);
     }
 
-    void FixedUpdate()
+    protected override void Move()
     {
         rb.linearVelocity = input * speed;
+    }
+
+    protected override void Die()
+    {
+        base.Die();                      // berhenti + nonaktif (dari Character)
+        anim.SetBool("IsMoving", false); // tambahan khusus player
+        Debug.Log("Player mati!");
     }
 }

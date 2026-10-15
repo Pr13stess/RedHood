@@ -19928,6 +19928,7 @@ GameObject:
   - component: {fileID: 756658260}
   - component: {fileID: 756658266}
   - component: {fileID: 756658267}
+  - component: {fileID: 756658268}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -19970,6 +19971,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
   speed: 4
+  rb: {fileID: 0}
+  anim: {fileID: 0}
+  input: {x: 0, y: 0}
+  lastDir: {x: 0, y: -1}
 --- !u!61 &756658262
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19977,7 +19982,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756658259}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -20143,6 +20148,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestDamage
   health: {fileID: 756658266}
+--- !u!114 &756658268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756658259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac3140a4a572e746bf8ffe0d8e026be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  speed: 4
 --- !u!4 &771440524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8943316338843031840, guid: adbf141d4987b8a4884338d462eeb74c, type: 3}
